@@ -1,0 +1,16 @@
+{
+  "security.workspace.trust.untrustedFiles": "open",
+  "workbench.colorTheme": "Atom One Dark",
+  "workbench.iconTheme": "material-icon-theme",
+  "workbench.activityBar.visible": false,
+  "vim.useSystemClipboard": true,
+  "editor.minimap.enabled": false,
+  "editor.formatOnSave": true,
+  // prettier related
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  // spelling related
+  "cSpell.userWords": ["mixpanel"]
+}
