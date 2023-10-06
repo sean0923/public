@@ -336,10 +336,6 @@ npm i react-router react-router-dom
 npm i lodash styled-components axios
 ```
 
-```sh
-npm i -D @types/lodash @types/styled-components @types/axios
-```
-
 #### main.tsx
 ```tsx
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
