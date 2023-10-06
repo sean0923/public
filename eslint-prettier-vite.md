@@ -336,6 +336,18 @@ npm i react-router react-router-dom
 npm install normalize.css
 ```
 
+### ROBOTO MONO FONT FROM GOOGLE FONT
+```html
+    <!-- GOOGLE FONT  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- ROBOTO MONO ==> font-family: 'Roboto Mono', monospace; -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap"
+      rel="stylesheet"
+    />
+```
+
 #### main.tsx
 ```tsx
 import { MantineProvider } from '@mantine/core';
