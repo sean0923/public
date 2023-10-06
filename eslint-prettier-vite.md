@@ -331,9 +331,9 @@ npm install @mantine/core @mantine/hooks @mantine/dates dayjs @mantine/notificat
 npm i react-router react-router-dom
 ```
 
-### lodash, styled-components, axios
+### normalized css
 ```sh
-npm i lodash styled-components axios
+npm install normalize.css
 ```
 
 #### main.tsx
