@@ -323,7 +323,7 @@ export const queryClient = new QueryClient({
 
 #### mantine
 ```sh
-npm install @mantine/core @mantine/hooks @mantine/dates dayjs @mantine/notifications @mantine/dropzone @mantine/carousel embla-carousel-react @mantine/spotlight @emotion/react
+npm install @mantine/core @mantine/hooks @mantine/dates dayjs @mantine/notifications
 ```
 
 ### react-router
