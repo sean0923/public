@@ -338,14 +338,17 @@ npm i lodash styled-components axios
 
 #### main.tsx
 ```tsx
+
+import { MantineProvider } from '@mantine/core';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
+import '@mantine/core/styles.css';
 
 const Component = () => {
   return (
     <>
       <Provider store={store}>
         <QueryClientProvider client={queryClient}>
-          <MantineProvider withGlobalStyles withNormalizeCSS>
+          <MantineProvider>
             <ReactQueryDevtools />
             <App />
           </MantineProvider>
