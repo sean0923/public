@@ -50,7 +50,7 @@ export default defineConfig({
 
 ### husky init
 ```sh
-npx husky-init && pnpm install
+pnpm dlx husky-init && pnpm install
 ```
 
 ```sh
