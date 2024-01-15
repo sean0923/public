@@ -328,6 +328,25 @@ export const queryClient = new QueryClient({
 pnpm install @mantine/core @mantine/hooks @mantine/dates dayjs @mantine/notifications
 ```
 
+#### zustand
+```sh
+pnpm install zustand
+```
+
+```ts
+import { create } from 'zustand';
+
+interface TempStoreState {
+  state: string;
+  setState: (state: string) => void;
+}
+
+export const useStateStore = create<TempStoreState>()((set) => ({
+  state: '',
+  setState: (state) => set({ state }),
+}));
+```
+
 ### react-router
 ```sh
 pnpm i react-router react-router-dom
