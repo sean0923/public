@@ -347,6 +347,55 @@ export const useStateStore = create<TempStoreState>()((set) => ({
 }));
 ```
 
+#### zod
+```sh
+pnpm add zod
+```
+
+- examples
+```ts
+export const phoneNumberSchema = z.string().refine(
+  (phone) => {
+    // 234-234-2344
+    return /^\d{3}-\d{3}-\d{4}$/.test(phone);
+  },
+  { message: 'Invalid phone number. Format must be ###-###-####.' }
+);
+
+export const ssnSchema = z.string().refine(
+  (ssn) => {
+    // 123-45-6789
+    return /^\d{3}-\d{2}-\d{4}$/.test(ssn);
+  },
+  { message: 'Invalid ssn. Format must be ###-##-####.' }
+);
+
+export const validDateSchema = z.string().refine(
+  (date) => {
+    // 2022-09-09
+    return ddjs(date, 'YYYY-MM-DD', true).isValid();
+  },
+  { message: 'Invalid date. Format must be YYYY-MM-DD and a valid date.' }
+);
+
+export const empDetailSchema = employeeSchema.omit({ embedding_infos: true }).extend({
+  // gather these 4 from register and create emp detail
+  start_date: validDateSchema,
+  phone_number: phoneNumberSchema,
+  ssn: z.union([z.literal(''), ssnSchema]),
+  date_of_birth: z.union([z.literal(''), validDateSchema]),
+  //
+  uid: z.string(),
+  curr_pay_type: z.enum(['HOURLY', 'SALARY']),
+  hourly_pay_histories: z.array(hourlyPayHistorySchema),
+  yearly_salary_histories: z.array(yearlySalaryHistorySchema),
+  termination_date: z.union([z.literal(''), validDateSchema]),
+  deduction: deductionSchema,
+  status: z.enum(['ACTIVE', 'INACTIVE']),
+  is_approved: z.boolean(), // when register false then manager has to approve
+});
+```
+
 ### react-router
 ```sh
 pnpm i react-router react-router-dom
