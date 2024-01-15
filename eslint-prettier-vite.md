@@ -1,6 +1,6 @@
 ### vite react-ts
 ```sh
-npm create vite@latest -- --template react-ts
+pnpm create vite@latest -- --template react-ts
 ```
 
 vite.config.ts
@@ -24,7 +24,7 @@ npx create-next-app@latest --ts
 ```
 
 ```sh
-npm install env-cmd
+pnpm install env-cmd
 ```
 
 pacakge.json
@@ -50,7 +50,7 @@ export default defineConfig({
 
 ### husky init
 ```sh
-npx husky-init && npm install
+npx husky-init && pnpm install
 ```
 
 ```sh
@@ -62,10 +62,10 @@ npx lint-staged
 ```
 
 
-### npm install (eslint, prettier, lint-staged)
+### pnpm install (eslint, prettier, lint-staged)
 
 ```sh
-npm install --save-dev @typescript-eslint/eslint-plugin @typescript-eslint/parser eslint eslint-config-prettier prettier lint-staged eslint-plugin-react eslint-plugin-react-hooks
+pnpm install --save-dev @typescript-eslint/eslint-plugin @typescript-eslint/parser eslint eslint-config-prettier prettier lint-staged eslint-plugin-react eslint-plugin-react-hooks
 ```
 
 #### end of package.json
@@ -134,8 +134,8 @@ npx lint-staged
 https://vitest.dev/guide/#trying-vitest-online
 
 ```sh
-# with npm
-npm install -D vitest
+# with pnpm
+pnpm install -D vitest
 ```
 
 ```json
@@ -204,9 +204,9 @@ export default defineConfig({
 
 #### vist absolute import
 ```sh
-npm i vite-tsconfig-paths
+pnpm i vite-tsconfig-paths
 ```
-https://www.npmjs.com/package/vite-tsconfig-paths
+https://www.pnpmjs.com/package/vite-tsconfig-paths
 
 ```ts
 // vite.config.ts
@@ -237,12 +237,12 @@ or
 
 #### three fiber related
 ```sh
-npm install three @react-three/fiber @types/three @react-three/drei
+pnpm install three @react-three/fiber @types/three @react-three/drei
 ```
 
 #### redux-toolkit
 ```sh
-npm install @reduxjs/toolkit react-redux
+pnpm install @reduxjs/toolkit react-redux
 ```
 
 store.ts
@@ -312,7 +312,7 @@ export const appReducer = appSlice.reducer;
 
 #### react-query
 ```sh
-npm i @tanstack/react-query @tanstack/react-query-devtools
+pnpm i @tanstack/react-query @tanstack/react-query-devtools
 ```
 
 ```ts
@@ -325,17 +325,17 @@ export const queryClient = new QueryClient({
 
 #### mantine
 ```sh
-npm install @mantine/core @mantine/hooks @mantine/dates dayjs @mantine/notifications
+pnpm install @mantine/core @mantine/hooks @mantine/dates dayjs @mantine/notifications
 ```
 
 ### react-router
 ```sh
-npm i react-router react-router-dom
+pnpm i react-router react-router-dom
 ```
 
 ### normalized css
 ```sh
-npm install normalize.css
+pnpm install normalize.css
 ```
 
 ### ROBOTO MONO FONT FROM GOOGLE FONT
