@@ -18,35 +18,43 @@ export default defineConfig({
 
 ```
 
-### next-ts
-```sh
-npx create-next-app@latest --ts
+### pnpm workspace
+
+#### pnpm-workspace.yaml
+```yaml
+packages:
+  - "fifo-store"
+  - "fifo-manager"
+  - "functions"
+  - "dev"
+  - "packages/**"
 ```
 
-```sh
-pnpm install env-cmd
+#### packages/@@utils
+```
+{
+  "name": "@@utils",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@@types": "workspace:*",
+    "dayjs": "^1.11.10",
+    "lodash": "^4.17.21",
+    "zod": "^3.22.4"
+  },
+  "devDependencies": {
+    "@types/lodash": "^4.14.199"
+  }
+}
 ```
 
-pacakge.json
-```json
-    "dev": "env-cmd -f .env.staging next",
-    "dev-production": "env-cmd -f .env.production next",
-```
-
-vite.config.ts
-```ts
-// vite.config.ts
-import { defineConfig } from 'vitest/config';
-import tsconfigPaths from 'vite-tsconfig-paths';
-
-// https://vitejs.dev/config/
-export default defineConfig({
-  plugins: [tsconfigPaths()],
-  define: { 'import.meta.vitest': 'undefined' },
-  test: { includeSource: ['src/**/*.{js,ts}'] },
-});
-
-```
 
 ### husky init
 ```sh
