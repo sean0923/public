@@ -92,7 +92,7 @@ npx lint-staged
 {
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
-    "ecmaVersion": 2018,
+    "ecmaVersion": "latest",
     "sourceType": "module"
   },
   "plugins": ["@typescript-eslint", "react-hooks"],
@@ -103,6 +103,9 @@ npx lint-staged
     "plugin:react-hooks/recommended"
   ],
   "rules": {
+    "@typescript-eslint/no-explicit-any": "off",
+    "react/no-unescaped-entities": "off",
+    //
     "@typescript-eslint/no-namespace": "off",
     "react/no-unknown-property": "off",
     "react/react-in-jsx-scope": "off",
@@ -113,7 +116,6 @@ npx lint-staged
     "@typescript-eslint/no-unused-vars": "error"
   }
 }
-
 ```
 
 #### .prettierrc.json
