@@ -1,3 +1,19 @@
+### prettier in package.json
+
+```json
+  "prettier": {
+    "trailingComma": "es5",
+    "tabWidth": 2,
+    "semi": true,
+    "singleQuote": true,
+    "printWidth": 100,
+    "arrowParens": "always"
+    "plugins": [
+      "prettier-plugin-tailwindcss"
+    ]
+  }
+```
+
 ### vite react-ts
 ```sh
 pnpm create vite@latest -- --template react-ts
