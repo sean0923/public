@@ -1,5 +1,9 @@
 ### prettier in package.json
 
+```sh
+pnpm install --save-dev prettier-plugin-tailwindcss
+```
+
 ```json
   "prettier": {
     "trailingComma": "es5",
@@ -7,7 +11,7 @@
     "semi": true,
     "singleQuote": true,
     "printWidth": 100,
-    "arrowParens": "always"
+    "arrowParens": "always",
     "plugins": [
       "prettier-plugin-tailwindcss"
     ]
