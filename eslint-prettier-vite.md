@@ -158,6 +158,52 @@ npx lint-staged
 }
 ```
 
+#### firebase-admin.ts
+```ts
+import * as admin from "firebase-admin";
+import { cert, getApp, getApps } from "firebase-admin/app";
+import { getAuth } from "firebase-admin/auth";
+import { getFirestore } from "firebase-admin/firestore";
+
+const projectId = process.env.FIREBASE_PROJECT_ID;
+const clientEmail = process.env.FIREBASE_CLIENT_EMAIL;
+const privateKey = process.env.FIREBASE_PRIVATE_KEY!.replace(/\\n/g, "\n");
+
+const credential = cert({ projectId, clientEmail, privateKey });
+
+export const app = !getApps().length
+  ? admin.initializeApp({ credential })
+  : getApp();
+
+export const adminDb = getFirestore(app);
+export const adminAuth = getAuth(app);
+
+```
+
+#### firebase-client.ts
+```ts
+'use client';
+
+// Import the functions you need from the SDKs you need
+import { getApp, getApps, initializeApp } from 'firebase/app';
+import { getAuth } from 'firebase/auth';
+// import { getFirestore } from 'firebase/firestore';
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+const firebaseConfig = {
+  // ...
+};
+
+// Initialize Firebase
+const app = !getApps().length ? initializeApp(firebaseConfig) : getApp();
+
+// export const clientDb = getFirestore(app);
+export const clientAuth = getAuth(app);
+
+```
+
 #### Vitest related
 https://vitest.dev/guide/#trying-vitest-online
 
