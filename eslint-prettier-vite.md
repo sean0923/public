@@ -18,6 +18,27 @@ pnpm install --save-dev prettier-plugin-tailwindcss
   }
 ```
 
+#### notify.utils.ts
+```ts
+import toast from 'react-hot-toast';
+import axios from 'axios';
+
+export const notifySuccess = (message?: string) => {
+  toast.success(message || 'Success');
+};
+
+export const notifyError = (err: unknown) => {
+  if (axios.isAxiosError(err)) {
+    toast.error('Error: ' + err.message);
+  } else if (err instanceof Error) {
+    toast.error('Error: ' + err.message);
+  } else {
+    toast.error('Unexpected Error');
+  }
+};
+
+```
+
 ### vite react-ts
 ```sh
 pnpm create vite@latest -- --template react-ts
