@@ -18,7 +18,7 @@ pnpm install --save-dev prettier-plugin-tailwindcss
   }
 ```
 
-#### notify.utils.ts
+### notify.utils.ts
 ```ts
 import toast from 'react-hot-toast';
 import axios from 'axios';
@@ -36,6 +36,91 @@ export const notifyError = (err: unknown) => {
     toast.error('Unexpected Error');
   }
 };
+
+```
+
+### auth-provider.tsx
+```tsx
+'use client';
+
+import { clientAuth } from '@/utils/firebase-client';
+import {
+  GoogleAuthProvider,
+  User,
+  onAuthStateChanged,
+  signInWithPopup,
+  signOut,
+} from 'firebase/auth';
+import { useRouter } from 'next/navigation';
+import { ReactNode, createContext, useContext, useEffect, useState } from 'react';
+
+const provider = new GoogleAuthProvider();
+
+interface CurrClientAuth {
+  user: User | null;
+  hasAuthAttempt: boolean;
+}
+interface AuthContextOutput {
+  currClientAuth: CurrClientAuth;
+  uid: string;
+  email: string;
+  loginWithGoogle: () => Promise<void>;
+  logOut: () => Promise<void>;
+}
+
+const AuthContext = createContext<AuthContextOutput>(null!);
+
+// const initCurrClientAuth: CurrClientAuth = { user: null, hasAuthAttempt: false };
+
+export const AuthProvider = (props: { children: ReactNode }) => {
+  const router = useRouter();
+  const [currClientAuth, setCurrClientAuth] = useState<CurrClientAuth>({
+    user: null,
+    hasAuthAttempt: false,
+  });
+
+  useEffect(() => {
+    const unsub = onAuthStateChanged(clientAuth, async (authUser) => {
+      if (authUser) {
+        setCurrClientAuth({ user: authUser, hasAuthAttempt: true });
+      } else {
+        setCurrClientAuth({ user: null, hasAuthAttempt: true });
+      }
+    });
+
+    return () => {
+      unsub();
+    };
+  }, []);
+
+  const loginWithGoogle = async () => {
+    await signInWithPopup(clientAuth, provider);
+  };
+
+  const logOut = async () => {
+    await signOut(clientAuth);
+    router.push('/');
+  };
+
+  const uid = currClientAuth?.user?.uid ?? '';
+  const email = currClientAuth?.user?.email ?? '';
+
+  return (
+    <AuthContext.Provider
+      value={{
+        currClientAuth,
+        loginWithGoogle,
+        logOut,
+        uid,
+        email,
+      }}
+    >
+      {props.children}
+    </AuthContext.Provider>
+  );
+};
+
+export const useAuthContext = () => useContext(AuthContext);
 
 ```
 
