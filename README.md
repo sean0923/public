@@ -19,3 +19,7 @@ defaults write -g ApplePressAndHoldEnabled -bool false
 
 ### Connecting Github with SSH
 https://docs.github.com/en/authentication/connecting-to-github-with-ssh
+
+### VS code permission issue
+<img width="694" alt="image" src="https://github.com/sean0923/public/assets/74228454/92c7ed8a-33c9-4fbd-b303-b17b5afca8cd">
+
