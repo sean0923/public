@@ -619,6 +619,27 @@ pnpm install normalize.css
     />
 ```
 
+#### custom-mantine-provider
+
+```tsx
+import { createTheme, MantineProvider } from '@mantine/core';
+
+import '@mantine/core/styles.css';
+
+const theme = createTheme({
+  /** Put your mantine theme override here */
+});
+
+interface Props {
+  children: React.ReactNode;
+}
+
+export const CustomMantineProvider = (props: Props) => {
+  return <MantineProvider theme={theme}>{props.children}</MantineProvider>;
+};
+
+```
+
 #### main.tsx
 ```tsx
 import { MantineProvider } from '@mantine/core';
