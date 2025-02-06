@@ -1,6 +1,9 @@
 # Setup Mac
 
-
+### Hyperterm hyper not found
+```
+sudo ln -s "/Applications/Hyper.app/Contents/Resources/bin/hyper" /usr/local/bin/hyper
+```
 ### Enable typing multiple single char by holding
 ```sh
 defaults write -g ApplePressAndHoldEnabled -bool false
