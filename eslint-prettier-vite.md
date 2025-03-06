@@ -1,3 +1,34 @@
+### tailwind v4 index.css
+```css
+@import "tailwindcss";
+
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentColor);
+  }
+}
+
+@theme {
+  --default-ring-width: 3px;
+  --default-ring-color: var(--color-blue-500);
+}
+
+@layer base {
+  input::placeholder,
+  textarea::placeholder {
+    color: var(--color-gray-400);
+  }
+}
+
+html {
+  @apply text-gray-900;
+}
+```
+
 ### tailwind in vite project
 ```sh
 pnpm install -D tailwindcss postcss autoprefixer
