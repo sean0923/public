@@ -1,3 +1,27 @@
+### zustand boilerplate
+```ts
+import { create } from 'zustand';
+
+interface State {
+  aaa: string;
+  setAaa: (aaa: string) => void;
+  //
+  reset: () => void;
+}
+
+const initState = {
+  aaa: '',
+} as const;
+
+export const useCurrTaskState = create<State>()((set) => ({
+  ...initState,
+  setAaa: (aaa: string) => set({ aaa }),
+  //
+  reset: () => set({ ...initState }),
+}));
+
+```
+
 ### tailwind v4 index.css
 ```css
 @import "tailwindcss";
