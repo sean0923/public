@@ -371,26 +371,16 @@ export const adminAuth = getAuth(app);
 
 #### firebase-client.ts
 ```ts
-'use client';
-
-// Import the functions you need from the SDKs you need
 import { getApp, getApps, initializeApp } from 'firebase/app';
 import { getAuth } from 'firebase/auth';
-// import { getFirestore } from 'firebase/firestore';
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
+import { getFirestore } from 'firebase/firestore';
 
-// Your web app's Firebase configuration
-const firebaseConfig = {
-  // ...
-};
+const firebaseConfig = JSON.parse(import.meta.env.FIREBASE_CONFIG);
 
-// Initialize Firebase
 const app = !getApps().length ? initializeApp(firebaseConfig) : getApp();
 
-// export const clientDb = getFirestore(app);
+export const clientDb = getFirestore(app);
 export const clientAuth = getAuth(app);
-
 ```
 
 #### Vitest related
